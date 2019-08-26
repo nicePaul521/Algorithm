@@ -47,12 +47,9 @@ int main()
         if(!isUpper(input[i])&&!flag&&!isUpper(input[i+1]))//大写-小写-小写，cap
         {
             int d = i==1? 0:isUpper(input[i-2]);
-            
-            cout<<d<<i<<endl;
             if(!d)
             {
                 count += 1;
-                cout<<"hello"<<endl;
             }
             else
             {
