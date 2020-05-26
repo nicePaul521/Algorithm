@@ -1,20 +1,27 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
-#include <vector>
 
-void reverseString(vector<char>& s) {
-
-    if(s.empty())
-        return;
-    cout<<s.back();
-    s.pop_back();
-    reverseString(s);
-    return;
+int lengthOfLongestSubstring(string s) {
+        string substr = "";
+        int len = 0;        
+        for(int i=0;i<s.length();i++)
+        {
+            if(substr.find(s[i])==-1){
+                substr += s[i];
+                cout<<substr<<endl;
+                continue;
+            }
+            if(substr.length()>len) len = substr.length();
+            substr.clear();
+            substr += s[i];
+        }
+        if(substr.length()>len) len = substr.length();
+        return len;
     }
-
-int main()
-{
-    char a[7] = {'a','B','c','D','E','F','g'};
-    vector<char> b(a,a+7);
-    reverseString(b);
+int main(){
+    string str = "dvdf";
+    int num = lengthOfLongestSubstring(str);
+    cout<<num<<endl;
 }
